@@ -1,0 +1,5 @@
+apache-mod-pubcookie (3.3.4a-0ubuntu1) precise; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Cybera <devops@cybera.ca>  Wed, 16 Oct 2013 17:04:08 +0000

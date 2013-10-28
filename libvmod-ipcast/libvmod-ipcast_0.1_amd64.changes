@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 19 Sep 2012 15:03:00 +0200
+Source: libvmod-ipcast
+Binary: libvmod-ipcast
+Architecture: source all
+Version: 0.1
+Distribution: unstable
+Urgency: low
+Maintainer: Lasse Karstensen <lkarsten@varnish-software.com>
+Changed-By: Lasse Karstensen <lasse@varnish-software.com>
+Description: 
+ libvmod-ipcast - Vmod for Varnish
+Changes: 
+ libvmod-ipcast (0.1) unstable; urgency=low
+ .
+   * First version
+Checksums-Sha1: 
+ 54a902a59ba67b12e20514403a1f20abdd6d139a 625 libvmod-ipcast_0.1.dsc
+ 8169d2cca3682c9eb0b892d2a8741eab51fc579b 385911 libvmod-ipcast_0.1.tar.gz
+ 1ff7bb88cf1a836b8b3b9020fc0a5eedb68dcfdc 15806 libvmod-ipcast_0.1_all.deb
+Checksums-Sha256: 
+ f68e72c8fc378f414fd806ca7aaca09ef0b90a84380e9114cf45fc65181ad7d7 625 libvmod-ipcast_0.1.dsc
+ 77d3714790626f9e00a808535e36e660d7436d3138df6080549d966c2c16c5ba 385911 libvmod-ipcast_0.1.tar.gz
+ d9c7223d5e7719e4d87d0d33e6f5f42fd34f3053435f89f3cc8703dfb048e8bd 15806 libvmod-ipcast_0.1_all.deb
+Files: 
+ 091af12a178f5cbfa761e655dfd110c3 625 web extra libvmod-ipcast_0.1.dsc
+ f865ddcf7acf2920f760a8137c0ed1cb 385911 web extra libvmod-ipcast_0.1.tar.gz
+ 7cfacad787b46b0e89619977b151f72b 15806 web extra libvmod-ipcast_0.1_all.deb

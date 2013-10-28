@@ -1,0 +1,9 @@
+Package: libvmod-ipcast
+Version: 0.1
+Architecture: all
+Maintainer: Lasse Karstensen <lkarsten@varnish-software.com>
+Installed-Size: 82
+Depends: varnish (= 3.0.2-1ubuntu0.1)
+Section: web
+Priority: extra
+Description: Vmod for Varnish
