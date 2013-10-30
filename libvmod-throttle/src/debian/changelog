@@ -1,0 +1,5 @@
+libvmod-throttle (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- unknown <reprepro@unknown>  Wed, 30 Oct 2013 16:38:07 +0000

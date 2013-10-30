@@ -1,0 +1,8 @@
+vcc_if.lo: vcc_if.c /home/reprepro/varnish-3.0.2/include/vrt.h vcc_if.h \
+ /home/reprepro/varnish-3.0.2/include/vmod_abi.h
+
+/home/reprepro/varnish-3.0.2/include/vrt.h:
+
+vcc_if.h:
+
+/home/reprepro/varnish-3.0.2/include/vmod_abi.h:
