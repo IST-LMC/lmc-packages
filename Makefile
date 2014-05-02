@@ -40,24 +40,24 @@ $(PUBCOOKIE_MAKEFILE):$(APXS2_BIN)
 $(APXS2_BIN):
 	sudo apt-get install apache2-dev -y
 
-ipcast:$(IPCAST_MAKEFILE) $(VARNISHTEST_BIN)
+ipcast:$(IPCAST_MAKEFILE) 
 	$(MAKE) -C $(IPCAST_DIR)
 	mkdir $(INSTALL_DIR)
 	$(MAKE) -C $(IPCAST_DIR) install DESTDIR=$(INSTALL_DIR)
 	fpm -f -s dir -t deb -n libvmod-ipcast -v $(IPCAST_VERSION) -C $(INSTALL_DIR) -p $(DEB_DIR)/NAME-VERSION_ARCH.deb -d "varnish (= 3.0.5-2)" usr
 	rm -rf $(INSTALL_DIR)
 
-$(IPCAST_MAKEFILE):
+$(IPCAST_MAKEFILE):$(VARNISHTEST_BIN)
 	cd $(IPCAST_DIR) && ./autogen.sh && ./configure VARNISHSRC=../$(VARNISH_DIR) VMODDIR=$(VMODDIR)
 
-throttle:$(THROTTLE_MAKEFILE) $(VARNISHTEST_BIN)
+throttle:$(THROTTLE_MAKEFILE)
 	$(MAKE) -C $(THROTTLE_DIR)
 	mkdir $(INSTALL_DIR)
 	$(MAKE) -C $(THROTTLE_DIR) install DESTDIR=$(INSTALL_DIR)
 	fpm -f -s dir -t deb -n libvmod-throttle -v $(THROTTLE_VERSION) -C $(INSTALL_DIR) -p $(DEB_DIR)/NAME-VERSION_ARCH.deb -d "varnish (= 3.0.5-2)" usr
 	rm -rf $(INSTALL_DIR)
 
-$(THROTTLE_MAKEFILE):
+$(THROTTLE_MAKEFILE):$(VARNISHTEST_BIN)
 	cd $(THROTTLE_DIR) && ./autogen.sh && ./configure VARNISHSRC=../$(VARNISH_DIR) VMODDIR=$(VMODDIR)
 
 $(VARNISHTEST_BIN):$(VARNISH_MAKEFILE)
