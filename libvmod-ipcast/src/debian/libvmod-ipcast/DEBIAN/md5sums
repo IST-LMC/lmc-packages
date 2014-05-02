@@ -1,8 +1,0 @@
-01ad97b8eabb8e73a321a8b6695a824b  usr/lib/varnish/vmods/libvmod_ipcast.la
-2f11830712e974b5fbe5f2b34d67c39e  usr/lib/varnish/vmods/libvmod_ipcast.so
-386fbe8ba597ad0da21556b5d5d3c9b2  usr/share/doc/libvmod-ipcast/COPYING
-ac117188680806670bcade2c761b2bf9  usr/share/doc/libvmod-ipcast/LICENSE
-9f6c6ef6f36875ceb97ea46ad3e6efa8  usr/share/doc/libvmod-ipcast/README.rst
-ddf3bceea1b446c57490fe23c0d1ebe2  usr/share/doc/libvmod-ipcast/changelog.gz
-890c71716cebfa63c1838abf0d5c9daf  usr/share/doc/libvmod-ipcast/copyright
-d3af0b92d00c4f0404b673ba1ac40d03  usr/share/man/man3/vmod_ipcast.3.gz

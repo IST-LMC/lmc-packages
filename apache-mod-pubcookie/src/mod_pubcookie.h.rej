@@ -1,0 +1,18 @@
+*** old/src/mod_pubcookie.h Mon Feb 1 20:37:36 2010 
+--- new/src/mod_pubcookie.h Wed Mar 10 06:44:15 2010 
+*************** 
+*** 87,92 ****
+  table *configlist; 
+  int dirdepth; 
+  int noblank; 
+  int catenate; /* Added by ddj at cmu.edu on 2006/05/01 */ 
+  int no_clean_creds; 
+  char *login; 
+--- 87,93 ----
+  table *configlist; 
+  int dirdepth; 
+  int noblank; 
++ int no_ssl; /* added by scl at virginia.edu 2010/03/09 */ 
+  int catenate; /* Added by ddj at cmu.edu on 2006/05/01 */ 
+  int no_clean_creds; 
+  char *login; 

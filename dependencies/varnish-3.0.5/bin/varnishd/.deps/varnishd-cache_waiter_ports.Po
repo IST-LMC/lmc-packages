@@ -1,0 +1,6 @@
+varnishd-cache_waiter_ports.o: cache_waiter_ports.c \
+ /usr/include/stdc-predef.h ../../config.h
+
+/usr/include/stdc-predef.h:
+
+../../config.h:

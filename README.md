@@ -1,5 +1,10 @@
-# lmc-packages
+# LMC Packages
 
-## Instructions
-	cd <package>/src
-	dpkg-buildpackage
+## Requirements
+
+    sudo apt-get install build-essential automake ruby-dev
+    sudo gem install fpm
+
+## Usage
+
+   make [pubcookie|throttle|ipcast]

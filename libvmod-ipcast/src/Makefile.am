@@ -1,21 +1,28 @@
-ACLOCAL_AMFLAGS = -I m4
+INCLUDES = -I$(VARNISHSRC)/include -I$(VARNISHSRC)
 
-SUBDIRS = src
+vmoddir = $(VMODDIR)
+vmod_LTLIBRARIES = libvmod_ipcast.la
 
-EXTRA_DIST = README.rst
+libvmod_ipcast_la_LDFLAGS = -module -export-dynamic -avoid-version -shared
 
-dist_man_MANS = vmod_ipcast.3
-MAINTAINERCLEANFILES = $(dist_man_MANS)
+libvmod_ipcast_la_SOURCES = \
+	vcc_if.c \
+	vcc_if.h \
+	vmod_ipcast.c
 
-vmod_ipcast.3: README.rst
+vcc_if.c vcc_if.h: $(VARNISHSRC)/lib/libvmod_std/vmod.py $(top_srcdir)/src/vmod_ipcast.vcc
+	@PYTHON@ $(VARNISHSRC)/lib/libvmod_std/vmod.py $(top_srcdir)/src/vmod_ipcast.vcc
 
-%.1 %.2 %.3 %.4 %.5 %.6 %.7 %.8 %.9:
-if HAVE_RST2MAN
-	${RST2MAN} $< $@
-else
-	@echo "========================================"
-	@echo "You need rst2man installed to make dist"
-	@echo "========================================"
-	@false
-endif
+VMOD_TESTS = tests/*.vtc
+.PHONY: $(VMOD_TESTS)
 
+tests/*.vtc:
+	$(VARNISHSRC)/bin/varnishtest/varnishtest -Dvarnishd=$(VARNISHSRC)/bin/varnishd/varnishd -Dvmod_topbuild=$(abs_top_builddir) $@
+
+check: $(VMOD_TESTS)
+
+EXTRA_DIST = \
+	vmod_ipcast.vcc \
+	$(VMOD_TESTS)
+
+CLEANFILES = $(builddir)/vcc_if.c $(builddir)/vcc_if.h

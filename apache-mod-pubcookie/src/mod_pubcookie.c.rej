@@ -1,0 +1,126 @@
+*** old/src/mod_pubcookie.c Mon Feb 1 20:37:36 2010 
+--- new/src/mod_pubcookie.c Wed Mar 10 06:44:15 2010 
+*************** 
+*** 177,187 ****
+  ap_log_rerror (PC_LOG_DEBUG, r, "dump_server_rec:\n\ 
+  dirdepth: %d\n\ 
+  noblank: %d\n\ 
+  login: %s\n\ 
+  appsrvid: %s\n\ 
+  authtype_names: %s\n\ 
+  use_post: %d\n\ 
+! no_clean_creds: %d\n", scfg->dirdepth, scfg->noblank, (scfg->login == NULL ? "" : scfg->login), (scfg->appsrvid == NULL ? "" : (char *) scfg->appsrvid), (scfg->authtype_names == NULL ? "" : (char *) scfg->authtype_names), scfg->use_post, scfg->no_clean_creds); 
+  
+  } 
+  
+--- 177,188 ----
+  ap_log_rerror (PC_LOG_DEBUG, r, "dump_server_rec:\n\ 
+  dirdepth: %d\n\ 
+  noblank: %d\n\ 
++ no_ssl: %d\n\ 
+  login: %s\n\ 
+  appsrvid: %s\n\ 
+  authtype_names: %s\n\ 
+  use_post: %d\n\ 
+! no_clean_creds: %d\n", scfg->dirdepth, scfg->noblank, scfg->no_ssl, (scfg->login == NULL ? "" : scfg->login), (scfg->appsrvid == NULL ? "" : (char *) scfg->appsrvid), (scfg->authtype_names == NULL ? "" : (char *) scfg->authtype_names), scfg->use_post, scfg->no_clean_creds); 
+  
+  } 
+  
+*************** 
+*** 1476,1481 ****
+  nscfg->appsrvid : pscfg->appsrvid; 
+  scfg->dirdepth = nscfg->dirdepth ? nscfg->dirdepth : pscfg->dirdepth; 
+  scfg->noblank = nscfg->noblank ? nscfg->noblank : pscfg->noblank; 
+  /* the following added by ddj at cmu.edu on 2006/05/01 */ 
+  scfg->catenate = nscfg->catenate ? nscfg->catenate : pscfg->catenate; 
+  scfg->no_clean_creds = 
+--- 1477,1483 ----
+  nscfg->appsrvid : pscfg->appsrvid; 
+  scfg->dirdepth = nscfg->dirdepth ? nscfg->dirdepth : pscfg->dirdepth; 
+  scfg->noblank = nscfg->noblank ? nscfg->noblank : pscfg->noblank; 
++ scfg->no_ssl = nscfg->no_ssl ? nscfg->no_ssl : pscfg->no_ssl; 
+  /* the following added by ddj at cmu.edu on 2006/05/01 */ 
+  scfg->catenate = nscfg->catenate ? nscfg->catenate : pscfg->catenate; 
+  scfg->no_clean_creds = 
+*************** 
+*** 1786,1791 ****
+  sess_cookie_name = 
+  make_session_cookie_name (p, PBC_S_COOKIENAME, appid (r)); 
+  
+  /* force SSL */ 
+  
+  #ifdef APACHE2 
+--- 1788,1795 ----
+  sess_cookie_name = 
+  make_session_cookie_name (p, PBC_S_COOKIENAME, appid (r)); 
+  
++ if (scfg->no_ssl == 0) { 
++ 
+  /* force SSL */ 
+  
+  #ifdef APACHE2 
+*************** 
+*** 1817,1822 ****
+  return OK; 
+  } 
+  
+  /* before we check if they hav a valid S or G cookie see if it's a logout */ 
+  if (check_end_session (r) & PBC_END_SESSION_ANY) { 
+  return OK; 
+--- 1821,1828 ----
+  return OK; 
+  } 
+  
++ } 
++ 
+  /* before we check if they hav a valid S or G cookie see if it's a logout */ 
+  if (check_end_session (r) & PBC_END_SESSION_ANY) { 
+  return OK; 
+*************** 
+*** 2999,3004 ****
+  return NULL; 
+  } 
+  
+  /* */ 
+  const char *pubcookie_set_no_ssl_ok (cmd_parms * cmd, void *mconfig, 
+  char *v) 
+--- 3005,3024 ----
+  return NULL; 
+  } 
+  
++ const char *pubcookie_set_require_ssl (cmd_parms * cmd, void *mconfig, int flag) 
++ { 
++ server_rec *s = cmd->server; 
++ pubcookie_server_rec *scfg; 
++ ap_pool *p = cmd->pool; 
++ 
++ scfg = (pubcookie_server_rec *) ap_get_module_config (s->module_config, 
++ &pubcookie_module); 
++ scfg->no_ssl = flag == 0; 
++ 
++ return NULL; 
++ } 
++ 
++ 
+  /* */ 
+  const char *pubcookie_set_no_ssl_ok (cmd_parms * cmd, void *mconfig, 
+  char *v) 
+*************** 
+*** 3172,3177 ****
+  pubcookie_set_no_obscure, 
+  NULL, RSRC_CONF, 
+  "Do not obscure Pubcookie cookies."), 
+  AP_INIT_RAW_ARGS ("PubCookieAuthTypeNames", 
+  set_authtype_names, 
+  NULL, RSRC_CONF,
+--- 3192,3201 ----
+  pubcookie_set_no_obscure, 
+  NULL, RSRC_CONF, 
+  "Do not obscure Pubcookie cookies."), 
++ AP_INIT_FLAG ("PubCookieRequireSSL", 
++ pubcookie_set_require_ssl, 
++ NULL, RSRC_CONF, 
++ "Require SSL (on by default)"), 
+  AP_INIT_RAW_ARGS ("PubCookieAuthTypeNames", 
+  set_authtype_names, 
+  NULL, RSRC_CONF,

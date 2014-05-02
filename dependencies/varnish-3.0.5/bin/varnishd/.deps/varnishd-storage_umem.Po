@@ -1,0 +1,6 @@
+varnishd-storage_umem.o: storage_umem.c /usr/include/stdc-predef.h \
+ ../../config.h
+
+/usr/include/stdc-predef.h:
+
+../../config.h:
