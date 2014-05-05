@@ -1,5 +1,5 @@
 # Our package versions, format is <upstream>-<cybera_revision>
-PUBCOOKIE_VERSION=3.3.4a_patched-0
+PUBCOOKIE_VERSION=3.3.4a-0
 IPCAST_VERSION=1.1-0
 THROTTLE_VERSION=1.0-0
 
@@ -17,7 +17,7 @@ APXS2_BIN=/usr/bin/apxs2
 VARNISH_VERSION=3.0.5 # apt-get source varnish
 VARNISH_DIR=$(DEPENDENCIES_DIR)/varnish-$(VARNISH_VERSION)
 VARNISH_MAKEFILE=$(VARNISH_DIR)/Makefile
-VARNISHTEST_BIN=$(VARNISH_DIR)/bin/varnishtest
+VARNISHTEST_BIN=$(VARNISH_DIR)/bin/varnishtest/varnishtest
 PCRE_LIB=/usr/lib/x86_64-linux-gnu/libpcre.so
 IPCAST_DIR=libvmod-ipcast
 IPCAST_MAKEFILE=$(IPCAST_DIR)/Makefile
