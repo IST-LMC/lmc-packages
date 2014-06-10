@@ -1,7 +1,7 @@
 # Our package versions, format is <upstream>-<cybera_revision>
 PUBCOOKIE_VERSION=3.3.4a-0
-IPCAST_VERSION=1.1-0
-THROTTLE_VERSION=1.0-0
+IPCAST_VERSION=1.1-1
+THROTTLE_VERSION=1.0-1
 
 # General configuration
 INSTALL_DIR=/tmp/install
@@ -23,7 +23,7 @@ IPCAST_DIR=libvmod-ipcast
 IPCAST_MAKEFILE=$(IPCAST_DIR)/Makefile
 THROTTLE_DIR=libvmod-throttle
 THROTTLE_MAKEFILE=$(THROTTLE_DIR)/Makefile
-VMODDIR=/usr/lib/varnish/vmods
+VMODDIR=/usr/lib/x86_64-linux-gnu/varnish/vmods
 
 all:ipcast throttle pubcookie
 
