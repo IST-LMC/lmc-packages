@@ -13,17 +13,21 @@ PUBCOOKIE_DIR=apache-mod-pubcookie
 PUBCOOKIE_MAKEFILE=$(PUBCOOKIE_DIR)/Makefile
 APXS2_BIN=/usr/bin/apxs2
 
-# Vmod configuration
+# Varnish configuration
 VARNISH_VERSION=3.0.5 # apt-get source varnish
 VARNISH_DIR=$(DEPENDENCIES_DIR)/varnish-$(VARNISH_VERSION)
 VARNISH_MAKEFILE=$(VARNISH_DIR)/Makefile
 VARNISHTEST_BIN=$(VARNISH_DIR)/bin/varnishtest/varnishtest
+VMODDIR=/usr/lib/x86_64-linux-gnu/varnish/vmods
 PCRE_LIB=/usr/lib/x86_64-linux-gnu/libpcre.so
+
+# Ipcast configuration
 IPCAST_DIR=libvmod-ipcast
 IPCAST_MAKEFILE=$(IPCAST_DIR)/Makefile
+
+# Throttle configuration
 THROTTLE_DIR=libvmod-throttle
 THROTTLE_MAKEFILE=$(THROTTLE_DIR)/Makefile
-VMODDIR=/usr/lib/x86_64-linux-gnu/varnish/vmods
 
 all:ipcast throttle pubcookie
 
