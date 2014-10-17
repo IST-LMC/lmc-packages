@@ -30,6 +30,10 @@ IPCAST_MAKEFILE=$(IPCAST_DIR)/Makefile
 THROTTLE_DIR=libvmod-throttle
 THROTTLE_MAKEFILE=$(THROTTLE_DIR)/Makefile
 
+# Pound configuration
+POUND_DIR=pound
+POUND_MAKEFILE=$(POUND_DIR)/Makefile
+
 .PHONY:all ipcast throttle pubcookie pound pre-build
 
 all:ipcast throttle pubcookie pound
