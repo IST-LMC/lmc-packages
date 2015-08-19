@@ -5,6 +5,6 @@ gem install fpm
 INIT
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "cybera/ubuntu-trusty"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.provision "shell", inline: $init
 end
