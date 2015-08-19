@@ -1,6 +1,0 @@
-varnishd-cache_waiter_kqueue.o: cache_waiter_kqueue.c \
- /usr/include/stdc-predef.h ../../config.h
-
-/usr/include/stdc-predef.h:
-
-../../config.h:

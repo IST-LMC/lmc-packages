@@ -6,6 +6,6 @@ Scripts to build custom packages for the LMC apt repository.
     vagrant up
     vagrant ssh
     cd /vagrant
-    make [pubcookie|throttle|ipcast]
+    make [pubcookie|lmc-python]
 
 Packages will appear in the `deb` directory.
