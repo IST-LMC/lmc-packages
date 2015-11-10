@@ -17,7 +17,7 @@ Launch the build VM with Vagrant and run make:
 Packages will appear in the `deb` directory.
 
 ## Submodules
-A git submodule always points at the same commit regardless of changes in the parent repository. To update a submodule to most recent commit in a branch do the following:
+A git submodule always points at the same commit regardless of changes in its parent repository. To update a submodule to most recent commit in a branch do the following:
 
     cd <submodule>
     git pull origin <branch>
