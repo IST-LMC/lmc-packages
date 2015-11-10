@@ -14,8 +14,8 @@ APXS2_BIN=/usr/bin/apxs2
 # lmc-python configuration
 LMC_PYTHON_DIR=lmc-python-lib
 LMC_PYTHON_INSTALL_SCRIPT=$(LMC_PYTHON_DIR)/vagrant/scripts/rebuild-virtualenv.sh
-LMC_PYTHON_INSTALL_DIR=/usr/local/lmc-python
-LMC_PYTHON_PREFIX=/opt/lmc-python
+LMC_PYTHON_INSTALL_DIR=/usr/local
+LMC_PYTHON_PREFIX=/opt
 
 .PHONY:all pubcookie lmc-python pre-build
 
@@ -38,4 +38,4 @@ $(APXS2_BIN):
 
 lmc-python:
 	sudo $(LMC_PYTHON_INSTALL_SCRIPT)
-	fpm -f -s dir -t deb -n lmc-python -v $(LMC_PYTHON_VERSION) -p $(DEB_DIR)/NAME-VERSION_ARCH.deb -d "libssl1.0.0" -d "libffi6" --prefix $(LMC_PYTHON_PREFIX) $(LMC_PYTHON_INSTALL_DIR)
+	fpm -f -s dir -t deb -n lmc-python -v $(LMC_PYTHON_VERSION) -C $(LMC_PYTHON_INSTALL_DIR) -p $(DEB_DIR)/NAME-VERSION_ARCH.deb -d "libssl1.0.0" -d "libffi6" --prefix $(LMC_PYTHON_PREFIX) lmc-python
