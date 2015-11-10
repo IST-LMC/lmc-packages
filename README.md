@@ -22,4 +22,4 @@ A git submodule always points at the same commit regardless of changes in the pa
     cd <submodule>
     git pull origin <branch>
 
-You'll likely also want to bump the version for that package at the top of the `Makefile` and then commit the changes.
+You'll likely also want to bump the version for that package at the top of the `Makefile`. Commit the changes and you're done.
