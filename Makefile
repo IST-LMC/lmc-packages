@@ -1,6 +1,6 @@
 # Our package versions, format is <upstream>-<cybera_revision>
 PUBCOOKIE_VERSION=3.3.4a-0
-LMC_PYTHON_VERSION=1.6.0
+LMC_PYTHON_VERSION=1.7.0
 
 # General configuration
 INSTALL_DIR=/tmp/install
