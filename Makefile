@@ -1,6 +1,6 @@
 # Our package versions, format is <upstream>-<cybera_revision>
 PUBCOOKIE_VERSION=3.3.4a-0
-LMC_PYTHON_VERSION=1.8.0
+LMC_PYTHON_VERSION=1.9.0
 
 # General configuration
 INSTALL_DIR=/tmp/install
@@ -14,7 +14,7 @@ APXS2_BIN=/usr/bin/apxs2
 # lmc-python configuration
 LMC_PYTHON_DIR=lmc-python-lib
 LMC_PYTHON_INSTALL_SCRIPT=$(LMC_PYTHON_DIR)/vagrant/scripts/rebuild-virtualenv.sh
-LMC_PYTHON_INSTALL_DIR=/usr/local
+LMC_PYTHON_INSTALL_DIR=/opt
 LMC_PYTHON_PREFIX=/opt
 
 .PHONY:all pubcookie lmc-python pre-build
