@@ -1,4 +1,4 @@
 [submodule "lmc-python-lib"]
 	path = lmc-python-lib
 	url = https://github.com/cybera/lmc-python-lib
-	branch = no-pyrax
+	branch = master
